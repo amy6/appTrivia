@@ -3,4 +3,17 @@
     <string name="action_settings">Settings</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="q1">When was Instagram launched?</string>
+    <string name="op1_2012">2012</string>
+    <string name="op2_2008">2008</string>
+    <string name="op3_2005">2005</string>
+    <string name="op4_2010">2010</string>
+
+
+    <string-array name="insta_q1_options">
+        <item>@string/op1_2012</item>
+        <item>@string/op2_2008</item>
+        <item>@string/op3_2005</item>
+        <item>@string/op4_2010</item>
+    </string-array>
 </resources>

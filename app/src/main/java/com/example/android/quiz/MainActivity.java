@@ -7,6 +7,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
     private ViewAnimator viewAnimator;
     private int res = R.drawable.content_music;
     private LinearLayout linearLayout;
+    private ArrayList<Question> questions;
+    private RecyclerView recyclerView;
+    private QuestionCardAdapter adapter;
 
     static {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
@@ -60,6 +64,21 @@ public class MainActivity extends AppCompatActivity implements ViewAnimator.View
         createMenuList();
         viewAnimator = new ViewAnimator<>(this, list, contentFragment, drawerLayout, this);
 
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+
+        questions = createQuestions();
+        adapter = new QuestionCardAdapter(this, questions);
+        recyclerView.setAdapter(adapter);
+
+
+    }
+
+    private ArrayList<Question> createQuestions() {
+        questions = new ArrayList<>();
+        questions.add(new Question(getString(R.string.q1), getResources().getStringArray
+                (R.array.insta_q1_options)));
+        return questions;
     }
 
     private void createMenuList() {
